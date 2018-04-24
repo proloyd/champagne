@@ -63,7 +63,7 @@ def champagne(L, B, noise_cov, T, idata_cov, dc, max_Iter=30, verbose=True ):
     >>> Tau = [gamma * np.eye (dc, dtype='float') for _ in range (num_sources)]
     # Construct inverse data covariances corresponding to that Tau
     >>> idata_cov = linalg.solve(noise_cov + np.dot(L, np.dot(linalg.block_diag(Tau), L.T)), np.eye(L.shape[0], dtype='float'))
-    >>> output = mychamp (L, y, inoise_cov, Tau, idata_cov, dc, max_Iter=50)
+    >>> output = champagne(L, y, inoise_cov, Tau, idata_cov, dc, max_Iter=50)
     # Construct source-estimate
     >>> source_estimate = np.dot (output["inverse_kernel"], np.dot (output["isigma_b"], y))
 
